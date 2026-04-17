@@ -1,75 +1,21 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { PageHeader } from "@/components/site/PageHeader";
-import { Proof } from "@/components/site/Proof";
-import { CTA } from "@/components/site/CTA";
-import { motion } from "framer-motion";
-import { MiniCrystal } from "@/components/three/MiniCrystal";
-import { SceneBackground } from "@/components/three/SceneBackground";
-
-const ease = [0.22, 1, 0.36, 1] as const;
-
-const cases = [
-  { tag: "Aesthetic clinic", title: "From silent feed to fully booked", metric: "+312%", label: "Inquiries / month", shape: "octa" as const },
-  { tag: "Pilates studio", title: "Filled new schedule in 14 days", metric: "+68%", label: "New bookings", shape: "icosa" as const },
-  { tag: "Boutique hotel", title: "Direct bookings beat OTA traffic", metric: "4.2x", label: "Direct ROAS", shape: "tetra" as const },
-  { tag: "E-commerce skincare", title: "Klaviyo flows reshaped retention", metric: "+41%", label: "Repeat revenue", shape: "torus" as const },
-];
-
-export const Route = createFileRoute("/work")({
-  head: () => ({
-    meta: [
-      { title: "Selected work — KuchaLab" },
-      { name: "description", content: "Selected case studies of brands and clinics we've helped grow." },
-      { property: "og:title", content: "Selected work — KuchaLab" },
-      { property: "og:description", content: "Real results across clinics, studios, hotels and e-commerce." },
-    ],
-  }),
-  component: WorkPage,
-});
-
-function WorkPage() {
-  return (
-    <main>
-      <PageHeader
-        eyebrow="Selected work"
-        title={<>Receipts, not promises.</>}
-        subtitle="A glimpse at what happens when content, creators and follow-up actually connect."
-        variant="work"
-      />
-
-      <section className="relative overflow-hidden py-20">
-        <SceneBackground variant="work" className="pointer-events-none absolute right-[-15%] top-0 -z-10 h-[700px] w-[700px] opacity-35" />
-        <div className="mx-auto max-w-6xl px-6">
-          <div className="grid gap-4 md:grid-cols-2">
-            {cases.map((c, i) => (
-              <motion.div
-                key={c.title}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 0.8, delay: i * 0.08, ease }}
-                className="group relative overflow-hidden rounded-3xl glass p-8 transition-all hover:bg-white/[0.04]"
-              >
-                <div className="flex items-start justify-between">
-                  <div className="text-xs uppercase tracking-widest text-muted-foreground">{c.tag}</div>
-                  <MiniCrystal kind={c.shape} className="h-24 w-24 -mr-2 -mt-2" />
-                </div>
-                <h3 className="mt-6 text-2xl font-semibold tracking-tight md:text-3xl">{c.title}</h3>
-                <div className="mt-8 flex items-end justify-between border-t border-border pt-6">
-                  <div>
-                    <div className="text-4xl font-semibold tracking-tight text-silver-gradient">{c.metric}</div>
-                    <div className="mt-1 text-xs uppercase tracking-widest text-muted-foreground">{c.label}</div>
-                  </div>
-                  <span className="text-xs text-muted-foreground">0{i + 1}</span>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <Proof />
-      <CTA />
-    </main>
-  );
+{
+  "name": "kuchalabbb",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@tanstack/react-router": "latest",
+    "framer-motion": "latest",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "vite": "latest"
+  }
 }
