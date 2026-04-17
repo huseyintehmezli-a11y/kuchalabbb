@@ -1,0 +1,31 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { PageHeader } from "@/components/site/PageHeader";
+import { Pricing } from "@/components/site/Pricing";
+import { CTA } from "@/components/site/CTA";
+
+export const Route = createFileRoute("/pricing")({
+  head: () => ({
+    meta: [
+      { title: "Pricing — KuchaLab" },
+      { name: "description", content: "Simple, premium pricing for our Growth Sprints. From $149." },
+      { property: "og:title", content: "Pricing — KuchaLab" },
+      { property: "og:description", content: "Three sprint tiers. Real outcomes." },
+    ],
+  }),
+  component: PricingPage,
+});
+
+function PricingPage() {
+  return (
+    <main>
+      <PageHeader
+        eyebrow="Pricing"
+        title={<>Sprint pricing, not retainers.</>}
+        subtitle="Pick the depth you need. Everything ships in 7 days."
+        variant="pricing"
+      />
+      <Pricing />
+      <CTA />
+    </main>
+  );
+}

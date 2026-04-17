@@ -1,0 +1,38 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { Hero } from "@/components/site/Hero";
+import { Problem } from "@/components/site/Problem";
+import { Services } from "@/components/site/Services";
+import { Process } from "@/components/site/Process";
+import { CaseStudies } from "@/components/site/CaseStudies";
+import { Pricing } from "@/components/site/Pricing";
+import { Proof } from "@/components/site/Proof";
+import { FAQ } from "@/components/site/FAQ";
+import { CTA } from "@/components/site/CTA";
+
+export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "KuchaLab — Turn content into bookings for service businesses" },
+      { name: "description", content: "KuchaLab builds simple content + follow-up systems for clinics, gyms, salons, restaurants, and local businesses that want real inquiries — not just views." },
+      { property: "og:title", content: "KuchaLab — Turn content into bookings" },
+      { property: "og:description", content: "7-day Growth Sprints for service businesses. Real inquiries, not vanity metrics." },
+    ],
+  }),
+  component: Index,
+});
+
+function Index() {
+  return (
+    <main className="relative">
+      <Hero />
+      <Problem />
+      <Services />
+      <Process />
+      <CaseStudies />
+      <Proof />
+      <Pricing />
+      <FAQ />
+      <CTA />
+    </main>
+  );
+}

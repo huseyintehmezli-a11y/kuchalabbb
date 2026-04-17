@@ -1,0 +1,31 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { PageHeader } from "@/components/site/PageHeader";
+import { Services } from "@/components/site/Services";
+import { CTA } from "@/components/site/CTA";
+
+export const Route = createFileRoute("/services")({
+  head: () => ({
+    meta: [
+      { title: "Services — KuchaLab" },
+      { name: "description", content: "Social Growth Sprint, creator sourcing, DM follow-up, email retention and conversion messaging." },
+      { property: "og:title", content: "Services — KuchaLab" },
+      { property: "og:description", content: "Everything we do, from audit to revenue." },
+    ],
+  }),
+  component: ServicesPage,
+});
+
+function ServicesPage() {
+  return (
+    <main>
+      <PageHeader
+        eyebrow="What we do"
+        title={<>Systems that turn content into clients.</>}
+        subtitle="Five focused services, designed to plug the gap between attention and revenue."
+        variant="services"
+      />
+      <Services />
+      <CTA />
+    </main>
+  );
+}

@@ -1,0 +1,29 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { PageHeader } from "@/components/site/PageHeader";
+import { CTA } from "@/components/site/CTA";
+
+export const Route = createFileRoute("/contact")({
+  head: () => ({
+    meta: [
+      { title: "Contact — KuchaLab" },
+      { name: "description", content: "Send your Instagram or website and get 3 free content ideas, personally reviewed." },
+      { property: "og:title", content: "Contact — KuchaLab" },
+      { property: "og:description", content: "Free, personal review of your social and growth setup." },
+    ],
+  }),
+  component: ContactPage,
+});
+
+function ContactPage() {
+  return (
+    <main>
+      <PageHeader
+        eyebrow="Get in touch"
+        title={<>Let's see your gap.</>}
+        subtitle="Drop your link below — we'll respond with 3 specific content ideas you can use this week."
+        variant="contact"
+      />
+      <CTA />
+    </main>
+  );
+}
